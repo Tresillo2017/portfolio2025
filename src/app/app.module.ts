@@ -33,6 +33,7 @@ import { TranslateComponent } from "@components/translate/translate.component";
 import { PrivacyPolicyComponent } from "@components/privacy-policy/privacy-policy.component";
 import { TermsOfServiceComponent } from "@components/terms-of-service/terms-of-service.component";
 import { HomeComponent } from "@components/home/home.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     UpdatingSnackbarComponent,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
+    BrowserAnimationsModule,
     AppRoutingModule,
     CommonModule,
     ServiceWorkerModule.register("ngsw-worker.js", {

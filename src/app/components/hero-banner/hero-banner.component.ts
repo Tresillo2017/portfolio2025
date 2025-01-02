@@ -11,6 +11,14 @@ import { LastfmService } from "src/app/services/lastfm.service";
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import { isPlatformBrowser } from "@angular/common";
 import { BackgroundService } from "@services/background.service";
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  state,
+  group,
+} from "@angular/animations";
 import JSChristmas from "jschristmas";
 const christmas = new JSChristmas();
 
@@ -18,6 +26,33 @@ const christmas = new JSChristmas();
   selector: "hero-banner",
   templateUrl: "./hero-banner.component.html",
   styleUrls: ["./hero-banner.component.scss"],
+  animations: [
+    trigger("waveAnimation", [
+      transition("* => *", [
+        style({ transform: "translateX(-100%)" }),
+        group([
+          animate(
+            "1000ms ease-in-out",
+            style({ transform: "translateX(100%)" }),
+          ),
+          animate("500ms ease-out", style({ opacity: 0.5 })),
+          animate("500ms 500ms ease-in", style({ opacity: 0 })),
+        ]),
+      ]),
+    ]),
+    trigger("fadeAnimation", [
+      transition("* => *", [
+        style({ opacity: 0, transform: "translateY(10px)" }),
+        animate(
+          "400ms 300ms ease-out",
+          style({
+            opacity: 1,
+            transform: "translateY(0)",
+          }),
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HeroBannerComponent implements OnInit, OnDestroy {
   images: Array<string>;

@@ -50,5 +50,5 @@ docs/CNAME
 # /src/assets/img/*.jpg
 
 src/.env
-#/src/environments
-#src/environments/environment.prod.ts
+/src/environments
+src/environments/environment.prod.ts
