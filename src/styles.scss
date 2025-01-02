@@ -2,129 +2,168 @@
 @import "material-you";
 @import "fonts/font-material-symbols";
 
+body {
+  &.light-theme,
+  &.dark-theme {
+    transition:
+      background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.page-transition {
+  animation: pageTransition 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 ::-webkit-scrollbar {
-	@include theme-transition();
-    background: #23005c;
-    background: #{var(--md-sys-color-background)};
+  @include theme-transition();
+  background: #23005c;
+  background: #{var(--md-sys-color-background)};
 }
 ::-webkit-scrollbar-thumb {
-	@include theme-transition();
-    border-radius: 32px;
-    background: #e9ddff;
-    background: #{var(--md-sys-color-inverse-surface)};
+  @include theme-transition();
+  border-radius: 32px;
+  background: #e9ddff;
+  background: #{var(--md-sys-color-inverse-surface)};
 }
 ::selection {
-	@include theme-transition();
-    background: #23005c;
-    color: #e9ddff;
-    background: #{var(--md-sys-color-inverse-surface)};
-    color: #{var(--md-sys-color-inverse-on-surface)};
+  @include theme-transition();
+  background: #23005c;
+  color: #e9ddff;
+  background: #{var(--md-sys-color-inverse-surface)};
+  color: #{var(--md-sys-color-inverse-on-surface)};
 }
 
 html {
-	@include media-breakpoint-down(sm) {
-		font-size: 12px;
-	}
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+  }
 }
 
 body {
-	font-family: "Poppins", $system-fallback-fonts;
-	margin: 0;
-	min-height: 100vh;
-	background-color: #{var(--md-sys-color-background)};
+  font-family: "Poppins", $system-fallback-fonts;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #{var(--md-sys-color-background)};
 }
 
 .material-symbols-rounded {
-	@include material-symbols-rounded;
-	user-select: none;
+  @include material-symbols-rounded;
+  user-select: none;
 }
 
-.light-theme, .dark-theme {
-	@include theme-transition();
+.light-theme,
+.dark-theme {
+  @include theme-transition();
 }
 
 .noscript-wrapper {
-	display: flex;
-	width: 100%;
-	min-height: 100vh;
-    background-color: #003c94;
-    color: white;
-	padding-left: 8%;
-    padding-top: 6%;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #003c94;
+  color: white;
+  padding-left: 8%;
+  padding-top: 6%;
 }
 
 .noscript {
-	display: block;
-    width: 70%;
-    font-size: 28px;
-    font-weight: 300;
-    font-family: "Segoe UI", Poppins, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  display: block;
+  width: 70%;
+  font-size: 28px;
+  font-weight: 300;
+  font-family:
+    "Segoe UI",
+    Poppins,
+    system-ui,
+    -apple-system,
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "Liberation Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
 
-	@include media-breakpoint-down(md) {
-		font-size: 24px;
-	}
+  @include media-breakpoint-down(md) {
+    font-size: 24px;
+  }
 
-	@include media-breakpoint-down(md) {
-		width: 90%;
-	}
+  @include media-breakpoint-down(md) {
+    width: 90%;
+  }
 
-	&__spiel {
-		margin-bottom: 24px;
-	}
+  &__spiel {
+    margin-bottom: 24px;
+  }
 
-	&__progress {
-		margin-bottom: 48px;
-	}
+  &__progress {
+    margin-bottom: 48px;
+  }
 
-	&__qr-code {
-		float: left;
-		margin-right: 24px;
-		width: 150px;
-		height: 150px;
+  &__qr-code {
+    float: left;
+    margin-right: 24px;
+    width: 150px;
+    height: 150px;
 
-		@include media-breakpoint-down(md) {
-			width: 110px;
-			height: 110px;
-		}
-	}
+    @include media-breakpoint-down(md) {
+      width: 110px;
+      height: 110px;
+    }
+  }
 
-	&__error-text {
-		font-size: 12px;
-		margin-bottom: 12px;
-		display: block;
+  &__error-text {
+    font-size: 12px;
+    margin-bottom: 12px;
+    display: block;
 
-		@include media-breakpoint-down(md) {
-			font-size: 10px;
-		}
+    @include media-breakpoint-down(md) {
+      font-size: 10px;
+    }
 
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-		&--with-link {
-			font-size: 16px;
-			margin-bottom: 44px;
+    &--with-link {
+      font-size: 16px;
+      margin-bottom: 44px;
 
-			@include media-breakpoint-down(md) {
-				font-size: 14px;
-				margin-bottom: 32px;
-			}
-		}
-	}
+      @include media-breakpoint-down(md) {
+        font-size: 14px;
+        margin-bottom: 32px;
+      }
+    }
+  }
 }
 
 .noscript-header {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 
-	&__text {
-		display: flex;
-		align-items: center;
-		font-size: 165px;
-		font-weight: inherit;
+  &__text {
+    display: flex;
+    align-items: center;
+    font-size: 165px;
+    font-weight: inherit;
 
-		@include media-breakpoint-down(md) {
-			font-size: 155px;
-		}
-	}
+    @include media-breakpoint-down(md) {
+      font-size: 155px;
+    }
+  }
 }

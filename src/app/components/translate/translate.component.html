@@ -3,9 +3,7 @@
     <ng-container *ngIf="currentLanguage === 'en'; else spanishMode">
       language_gb_english
     </ng-container>
-    <ng-template #spanishMode>
-      language_spanish
-    </ng-template>
+    <ng-template #spanishMode> language_spanish </ng-template>
   </span>
-  {{ 'LANGUAGE' | translate }}
+  {{ "LANGUAGE" | translate }}
 </button>
