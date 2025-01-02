@@ -52,3 +52,4 @@ docs/CNAME
 src/.env
 /src/environments
 src/environments/environment.prod.ts
+src/environments/environment.prod.ts
