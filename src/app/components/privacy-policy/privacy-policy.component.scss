@@ -1,0 +1,217 @@
+@import "material-you";
+
+:host {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+.privacy-policy {
+  @include material-container--primary;
+
+  display: flex;
+  padding: $full-container-padding;
+  border-radius: 0rem;
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  clip-path: inset(
+    0 round 0rem 0rem $container-border-radius $container-border-radius
+  );
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  transition:
+    min-height $theme-transition-speed ease,
+    background $theme-transition-speed ease,
+    color $theme-transition-speed ease;
+
+  &__back-button-container {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+
+    @include media-breakpoint-down(md) {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+
+  &__back-button {
+    @include material-basic--primary;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: $container-border-radius;
+    cursor: pointer;
+    transition: all $theme-transition-speed ease;
+    text-decoration: none;
+
+    &:hover {
+      @include material-inverted--primary;
+    }
+
+    .material-symbols-rounded {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__back-text {
+    font-weight: 500;
+
+    @include media-breakpoint-down(md) {
+      display: none; // Hide text on mobile, show only icon
+    }
+  }
+
+  &__img {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    z-index: -1;
+    transition: opacity $theme-transition-speed ease;
+    user-select: none;
+    object-position: center;
+    object-fit: cover;
+    opacity: 25%;
+    max-width: 100%;
+    filter: blur(10px);
+
+    &--first-image-disabled,
+    &--second-image-disabled,
+    &--custom-image-disabled {
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__text-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(var(--md-sys-color-primary-container-rgb), 0.85);
+    border-radius: $container-border-radius;
+    padding: 2rem;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: 3rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  &__content {
+    section {
+      margin-bottom: 2rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &__waves {
+    position: absolute;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px;
+    bottom: 0;
+    left: 0;
+
+    @include media-breakpoint-down(lg) {
+      height: 75px;
+      min-height: 75px;
+    }
+  }
+
+  &__wave-parallax {
+    & > use {
+      animation: wave-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+      transition: fill $theme-transition-speed ease;
+    }
+
+    & > use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+      opacity: 0.5;
+      fill: #{var(--md-sys-color-on-primary)};
+    }
+
+    & > use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+      opacity: 0.5;
+      fill: #{var(--md-sys-color-secondary)};
+    }
+
+    & > use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+      opacity: 0.5;
+      fill: #{var(--md-sys-color-tertiary)};
+    }
+
+    & > use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+      opacity: 0.75;
+      fill: #{var(--md-sys-color-primary)};
+    }
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .privacy-policy {
+    min-height: auto;
+    padding: 1rem;
+
+    &__header {
+      font-size: 2rem;
+    }
+  }
+}
