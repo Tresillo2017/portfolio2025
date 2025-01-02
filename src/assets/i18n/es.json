@@ -17,28 +17,39 @@
       "icon": "lightbulb",
       "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "shortDescription": "¿Cómo llegó esto aquí?",
-      "description": ["Haga clic en cualquiera de las tarjetas a continuación para conocer las actividades en las que estoy involucrado en mi vida en este momento. Las tarjetas se actualizarán a medida que adquiera nuevos intereses y pasatiempos."]
+      "description": [
+        "Haga clic en cualquiera de las tarjetas a continuación para conocer las actividades en las que estoy involucrado en mi vida en este momento. Las tarjetas se actualizarán a medida que adquiera nuevos intereses y pasatiempos."
+      ]
     },
     {
       "title": "Desarrollo",
       "icon": "terminal",
       "link": "https://github.com/tresillo2017",
       "shortDescription": "El desarrollo siempre ha sido lo mío. Siempre lo ha sido y siempre lo será.",
-      "description": ["Siempre me ha encantado trabajar en proyectos personales o ideas mías que impliquen escribir código. Tener la oportunidad de implementar ideas, ya sean del cliente o de otro tipo, siempre es emocionante.", "Estos días, estoy trabajando en escribir scripts de shell para mi instalación de Linux. Por cierto, uso Arch Linux."]
+      "description": [
+        "Siempre me ha encantado trabajar en proyectos personales o ideas mías que impliquen escribir código. Tener la oportunidad de implementar ideas, ya sean del cliente o de otro tipo, siempre es emocionante.",
+        "Estos días, estoy trabajando en escribir scripts de shell para mi instalación de Linux. Por cierto, uso Arch Linux."
+      ]
     },
     {
       "title": "Relaciones",
       "icon": "sentiment_satisfied",
       "link": "https://www.instagram.com/toomas_ps/",
       "shortDescription": "Mantenerse al día con los amigos es difícil, pero son mi principal fuente de alegría en la vida.",
-      "description": ["He pasado gran parte de mi vida pensando en cuál es mi principal fuente de alegría. Resulta que era simple: ¡mis amigos!", "Actualmente estoy involucrado en muchos grupos de amigos y, aunque es difícil mantenerse al día con todos ellos mensualmente, aún hago mi mejor esfuerzo. A veces, me mantengo al día con los amigos a través de Instagram."]
+      "description": [
+        "He pasado gran parte de mi vida pensando en cuál es mi principal fuente de alegría. Resulta que era simple: ¡mis amigos!",
+        "Actualmente estoy involucrado en muchos grupos de amigos y, aunque es difícil mantenerse al día con todos ellos mensualmente, aún hago mi mejor esfuerzo. A veces, me mantengo al día con los amigos a través de Instagram."
+      ]
     },
     {
       "title": "Música",
       "icon": "queue_music",
       "link": "https://tidal.com/browse/user/195041547",
       "shortDescription": "¿Por qué escucho géneros extraños estos días? No estoy seguro, pero me gustan.",
-      "description": ["Mi día no está realmente completo sin reproducir una canción en bucle durante horas, para ser honesto. Principalmente escucho cosas en tidal y de mi colección local de FLAC.", "Mis principales géneros de música estos días son pop, rock e indie"]
+      "description": [
+        "Mi día no está realmente completo sin reproducir una canción en bucle durante horas, para ser honesto. Principalmente escucho cosas en tidal y de mi colección local de FLAC.",
+        "Mis principales géneros de música estos días son pop, rock e indie"
+      ]
     }
   ],
   "OTHER_SITES": [
@@ -102,5 +113,104 @@
   "DEVOPS": "DevOps",
   "FRONT_END_WEB": "Desarrollo Front-end",
   "BACK_END_WEB": "Desarrollo Back-end",
-  "GENERAL_DEVELOPMENT": "Desarrollo General"
+  "GENERAL_DEVELOPMENT": "Desarrollo General",
+  "PRIVACY_POLICY": {
+    "TITLE": "Política de Privacidad",
+    "LAST_UPDATED": "Última Actualización",
+    "SECTIONS": {
+      "INFO_COLLECT": {
+        "TITLE": "1. Información que Recopilamos",
+        "CONTENT": "Recopilamos los siguientes tipos de información:",
+        "ITEMS": [
+          "Direcciones IP: Registramos direcciones IP por motivos de seguridad.",
+          "Registros: Mantenemos registros para seguridad y errores corregidos."
+        ]
+      },
+      "WHY_COLLECT": {
+        "TITLE": "2. Por qué Recopilamos Información",
+        "CONTENT": "Recopilamos información para los siguientes propósitos:",
+        "ITEMS": [
+          "Seguridad: Para proteger nuestro sitio web y usuarios de amenazas potenciales.",
+          "Mejora del Usuario: Para mejorar la experiencia del usuario en nuestro sitio web mediante la corrección de errores."
+        ]
+      },
+      "SHARING": {
+        "TITLE": "3. Compartir Información",
+        "CONTENT": "No compartimos ninguna información recopilada con terceros. Nuestros servicios son autoalojados y no participamos en prácticas de compartición de datos con fines monetarios."
+      },
+      "STORAGE": {
+        "TITLE": "4. Almacenamiento y Seguridad",
+        "ITEMS": [
+          "Toda la información se almacena en un centro de datos ubicado en España.",
+          "Tenemos derecho a acceder a esta información en caso de acción legal o a solicitud del usuario.",
+          "Los datos del usuario, excepto las contraseñas, no están cifrados, ya que la mayoría de los servicios alojados solo son accesibles para el usuario."
+        ]
+      },
+      "USER_RIGHTS": {
+        "TITLE": "5. Derechos del Usuario",
+        "ITEMS": [
+          "Los usuarios tienen derecho a descargar sus datos y eliminar sus cuentas.",
+          "Los usuarios pueden ejercer sus derechos contactándonos en contact@tomasps.com con el asunto apropiado."
+        ]
+      },
+      "AGE": {
+        "TITLE": "6. Restricciones de Edad",
+        "CONTENT": "Los usuarios menores de 13 años no están permitidos en la plataforma sin permiso parental."
+      },
+      "COOKIES": {
+        "TITLE": "7. Cookies",
+        "CONTENT": "Utilizamos cookies en https://spainrp.me, alojado por nosotros. Consulte la política de privacidad en esa página para más detalles."
+      },
+      "CONTACT": {
+        "TITLE": "Información de Contacto",
+        "CONTENT": "Para preguntas o inquietudes sobre privacidad, los usuarios pueden contactarnos en contact@tomasps.com con el asunto apropiado."
+      }
+    }
+  },
+  "TERMS_OF_SERVICE": {
+    "TITLE": "Términos de Servicio",
+    "ACCEPTANCE": {
+      "TITLE": "Aceptación de Términos",
+      "CONTENT": "Al acceder y utilizar https://tomasps.com y sus subdominios, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones. Si no está de acuerdo con estos términos, absténgase de utilizar nuestros servicios."
+    },
+    "ACCURACY": {
+      "TITLE": "Precisión de la Información",
+      "CONTENT": "La información proporcionada en este sitio web es solo para fines informativos generales. No ofrecemos garantías ni representaciones sobre la precisión, integridad o fiabilidad de ningún contenido."
+    },
+    "CONDUCT": {
+      "TITLE": "Conducta del Usuario",
+      "CONTENT": "Usted acepta no participar en ninguna de las siguientes actividades:",
+      "ITEMS": [
+        "Violar leyes o regulaciones aplicables.",
+        "Interferir con el funcionamiento adecuado del sitio web.",
+        "Usar el sitio web para obtener acceso no autorizado a otros sistemas informáticos.",
+        "Participar en cualquier actividad que pueda dañar o interrumpir el sitio web."
+      ]
+    },
+    "PROPERTY": {
+      "TITLE": "Propiedad Intelectual",
+      "ITEMS": [
+        "Todo el contenido y materiales en el sitio web, incluyendo pero no limitado a texto, imágenes, logotipos y software, son propiedad de TomasPS y están protegidos por derechos de autor, marcas registradas y otras leyes de propiedad intelectual.",
+        "La mayoría de nuestra infraestructura es de código abierto, y se le anima a seguir las respectivas licencias de código abierto para dichos componentes.",
+        "Los archivos subidos por TomasPS están protegidos por derechos de autor. Estos archivos no pueden ser resubidos, reproducidos o distribuidos sin el permiso explícito de TomasPS."
+      ]
+    },
+    "LIABILITY": {
+      "TITLE": "Limitación de Responsabilidad",
+      "CONTENT": "No somos responsables de ningún daño directo, indirecto, incidental, especial o consecuente que surja de o esté relacionado de alguna manera con el uso de este sitio web."
+    },
+    "PRIVACY": {
+      "TITLE": "Privacidad",
+      "CONTENT": "Al utilizar nuestros servicios, usted acepta los términos descritos en nuestra Política de Privacidad. Por favor, revise la Política de Privacidad para obtener detalles sobre cómo recopilamos, usamos y protegemos su información personal."
+    },
+    "MODIFICATIONS": {
+      "TITLE": "Modificaciones de los Términos",
+      "CONTENT": "Nos reservamos el derecho de modificar o revisar estos términos en cualquier momento. Su uso continuado del sitio web después de cualquier cambio indica su aceptación de dichos cambios."
+    },
+    "CONTACT": {
+      "TITLE": "Información de Contacto",
+      "CONTENT": "Si tiene alguna pregunta o inquietud con respecto a estos términos, por favor contacte a TomasPS en contact@tomasps.com."
+    }
+  },
+  "BACK_TO_HOME": "Pagina principal"
 }

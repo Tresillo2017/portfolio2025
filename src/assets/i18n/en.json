@@ -16,28 +16,39 @@
       "icon": "lightbulb",
       "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "shortDescription": "How did this get here?",
-      "description": ["Click any of the cards below to know the activities I'm involved with my life at the moment. Cards will be updated as I pick up new interests and hobbies."]
+      "description": [
+        "Click any of the cards below to know the activities I'm involved with my life at the moment. Cards will be updated as I pick up new interests and hobbies."
+      ]
     },
     {
       "title": "Development",
       "icon": "terminal",
       "link": "https://github.com/tresillo2017",
       "shortDescription": "Development's always been my thing. Always has and always will be.",
-      "description": ["I've always loved working on personal projects or ideas of mine that involve writing code. Having an opportunity to implement ideas, whether the client's or otherwise, is always exciting.", "These days, I'm working on writing shell scripts for my Linux installation. I use Arch Linux btw."]
+      "description": [
+        "I've always loved working on personal projects or ideas of mine that involve writing code. Having an opportunity to implement ideas, whether the client's or otherwise, is always exciting.",
+        "These days, I'm working on writing shell scripts for my Linux installation. I use Arch Linux btw."
+      ]
     },
     {
       "title": "Relationships",
       "icon": "sentiment_satisfied",
       "link": "https://www.instagram.com/toomas_ps/",
       "shortDescription": "Keeping up with friends is hard, but they're my main source of joy in life.",
-      "description": ["I've spent a great time of my life thinking about what my main source of joy is. Turns out, it was simple: my friends!", "I'm currently involved in many friend groups and, while it's hard to keep up with all of them on a monthly basis, I still try my best. Sometimes, I keep up with friends through Instagram."]
+      "description": [
+        "I've spent a great time of my life thinking about what my main source of joy is. Turns out, it was simple: my friends!",
+        "I'm currently involved in many friend groups and, while it's hard to keep up with all of them on a monthly basis, I still try my best. Sometimes, I keep up with friends through Instagram."
+      ]
     },
     {
       "title": "Music",
       "icon": "queue_music",
       "link": "https://tidal.com/browse/user/195041547",
       "shortDescription": "Why do I listen to weird genres these days? I'm not sure, but I like 'em.",
-      "description": ["My day isn't really complete without playing a song on loop for hours on end, to be honest. I mostly listen to stuff on tidal and off my local FLAC collection.", "My main genres of music these days are pop, rock and indie"]
+      "description": [
+        "My day isn't really complete without playing a song on loop for hours on end, to be honest. I mostly listen to stuff on tidal and off my local FLAC collection.",
+        "My main genres of music these days are pop, rock and indie"
+      ]
     }
   ],
   "MY_LIFE": "My Life",
@@ -70,7 +81,13 @@
   "EXPLORE": "Explore tomasps.com",
   "WEB_INFO": "Visit the other websites that I have built and deployed on this domain.",
   "VISIT_SITE": "Visit site",
-  "WEB_ATTRIBUTES": ["focused", "inspired", "driven", "oriented", "impassioned"],
+  "WEB_ATTRIBUTES": [
+    "focused",
+    "inspired",
+    "driven",
+    "oriented",
+    "impassioned"
+  ],
   "IAM": "I am",
   "WEB_DESCRIPTION_1": "Ever since its inception, the World Wide Web has served as a fundamental mold that brings technologies and infrastructures together. I first started editing HTML templates for my blog and website.",
   "WEB_DESCRIPTION_2": "My projects include UX design, UI animations, and icon illustration. Being comfortable with code allows me to rapidly prototype and validate experiences. In my spare time I like to take photos of things I see and like.",
@@ -96,5 +113,104 @@
   "DEVOPS": "DevOps",
   "FRONT_END_WEB": "Front-end Web",
   "BACK_END_WEB": "Back-end Web",
-  "GENERAL_DEVELOPMENT": "General Development"
+  "GENERAL_DEVELOPMENT": "General Development",
+  "PRIVACY_POLICY": {
+    "TITLE": "Privacy Policy",
+    "LAST_UPDATED": "Last Updated",
+    "SECTIONS": {
+      "INFO_COLLECT": {
+        "TITLE": "1. Information We Collect",
+        "CONTENT": "We collect the following types of information:",
+        "ITEMS": [
+          "IP Addresses: We log IP addresses for security purposes.",
+          "Logs: We maintain logs for security and bugs fixed."
+        ]
+      },
+      "WHY_COLLECT": {
+        "TITLE": "2. Why We Collect Information",
+        "CONTENT": "We collect information for the following purposes:",
+        "ITEMS": [
+          "Security: To protect our website and users from potential threats.",
+          "User Improvement: To enhance the user experience on our website by fixing bugs."
+        ]
+      },
+      "SHARING": {
+        "TITLE": "3. Sharing of Information",
+        "CONTENT": "We do not share any collected information with third parties. Our services are self-hosted, and we do not engage in any data-sharing practices for monetary gain."
+      },
+      "STORAGE": {
+        "TITLE": "4. Storage and Security",
+        "ITEMS": [
+          "All information is stored on a data center located in Spain.",
+          "We have the right to access this information in case of legal action or at the user's request.",
+          "User data, apart from passwords, is not encrypted, as most services hosted are only accessible to the user."
+        ]
+      },
+      "USER_RIGHTS": {
+        "TITLE": "5. User Rights",
+        "ITEMS": [
+          "Users have the right to download their data and delete their accounts.",
+          "Users can exercise their rights by contacting us at contact@tomasps.com with the appropriate subject."
+        ]
+      },
+      "AGE": {
+        "TITLE": "6. Age Restrictions",
+        "CONTENT": "Users under 13 years old are not allowed on the platform without parental permission."
+      },
+      "COOKIES": {
+        "TITLE": "7. Cookies",
+        "CONTENT": "We use cookies on https://spainrp.me, hosted by us. Refer to the privacy policy on that page for details."
+      },
+      "CONTACT": {
+        "TITLE": "Contact Information",
+        "CONTENT": "For privacy concerns or inquiries, users can contact us at contact@tomasps.com with the appropriate subject."
+      }
+    }
+  },
+  "TERMS_OF_SERVICE": {
+    "TITLE": "Terms of Service",
+    "ACCEPTANCE": {
+      "TITLE": "Acceptance of Terms",
+      "CONTENT": "By accessing and using https://tomasps.com and its subdomains, you agree to comply with and be bound by the following terms and conditions. If you do not agree to these terms, please refrain from using our services."
+    },
+    "ACCURACY": {
+      "TITLE": "Accuracy of Information",
+      "CONTENT": "The information provided on this website is for general informational purposes only. We make no warranties or representations about the accuracy, completeness or reliability of any content."
+    },
+    "CONDUCT": {
+      "TITLE": "User Conduct",
+      "CONTENT": "You agree not to engage in any of the following activities:",
+      "ITEMS": [
+        "Violate any applicable laws or regulations.",
+        "Interfere with the proper working of the website.",
+        "Use the website to gain unauthorized access to other computer systems.",
+        "Engage in any activity that may damage or disrupt the website."
+      ]
+    },
+    "PROPERTY": {
+      "TITLE": "Intellectual Property",
+      "ITEMS": [
+        "All content and materials on the website, including but not limited to text, images, logos, and software, are the property of TomasPS and are protected by copyright, trademark, and other intellectual property laws.",
+        "The majority of our infrastructure is open source, and you are encouraged to follow the respective open source licenses for such components.",
+        "Files uploaded by TomasPS are protected by copyright. These files may not be reuploaded, reproduced, or distributed without the explicit permission of TomasPS."
+      ]
+    },
+    "LIABILITY": {
+      "TITLE": "Limitation of Liability",
+      "CONTENT": "We are not liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way related to the use of this website."
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy",
+      "CONTENT": "By using our services, you agree to the terms outlined in our Privacy Policy. Please review the Privacy Policy for details on how we collect, use, and protect your personal information."
+    },
+    "MODIFICATIONS": {
+      "TITLE": "Modifications to Terms",
+      "CONTENT": "We reserve the right to modify or revise these terms at any time. Your continued use of the website after any changes indicates your acceptance of such changes."
+    },
+    "CONTACT": {
+      "TITLE": "Contact Information",
+      "CONTENT": "If you have any questions or concerns regarding these terms, please contact TomasPS at contact@tomasps.com."
+    }
+  },
+  "BACK_TO_HOME": "Back to home"
 }

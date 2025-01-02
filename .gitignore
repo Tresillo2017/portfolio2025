@@ -50,3 +50,4 @@ docs/CNAME
 # /src/assets/img/*.jpg
 
 /src/environments/
+src/.env
