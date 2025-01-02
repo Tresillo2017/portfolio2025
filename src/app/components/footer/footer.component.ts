@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core";
 import { Router } from "@angular/router";
-import { ViewportScroller } from "@angular/common";
+import { ViewportScroller, isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-footer",
@@ -8,6 +8,7 @@ import { ViewportScroller } from "@angular/common";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent implements OnInit {
+  isBrowser: boolean;
   footerLinks = [
     {
       icon: "photo_camera",
@@ -49,22 +50,28 @@ export class FooterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private viewportScroller: ViewportScroller, // Add this
-  ) {}
+    private viewportScroller: ViewportScroller,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit(): void {}
 
   handleClick(link: string, isExternal: boolean, event: Event) {
     event.preventDefault();
+    if (!this.isBrowser) return;
+
+    event.preventDefault();
     if (isExternal) {
       window.open(link, "_blank");
     } else {
-      // First navigate, then scroll
       this.router.navigate([link]).then(() => {
-        // Add a small delay to ensure navigation is complete
-        setTimeout(() => {
-          this.viewportScroller.scrollToPosition([0, 0]);
-        }, 100);
+        if (this.isBrowser) {
+          setTimeout(() => {
+            this.viewportScroller.scrollToPosition([0, 0]);
+          }, 100);
+        }
       });
     }
   }

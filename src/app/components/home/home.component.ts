@@ -20,25 +20,35 @@ export class HomeComponent implements OnInit {
     private sw: UpdateService,
     private translate: TranslateService,
   ) {
-    this.sw.checkForUpdates();
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.translate.setDefaultLang("en");
+
+    if (this.isBrowser) {
+      this.sw.checkForUpdates();
+      this.translate.setDefaultLang("en");
+    }
   }
 
   async ngOnInit() {
     if (this.isBrowser) {
-      this.idb.connectToIDB();
-      const customImage = await this.idb.getData("Material You", "customImage");
+      try {
+        await this.idb.connectToIDB();
+        const customImage = await this.idb.getData(
+          "Material You",
+          "customImage",
+        );
 
-      if (customImage) {
-        this.accent.setCustomImage(customImage, true);
-      }
+        if (customImage) {
+          this.accent.setCustomImage(customImage, true);
+        }
 
-      const accentIndex =
-        (await this.idb.getData("Material You", "themeIndex")) || 1;
+        const accentIndex =
+          (await this.idb.getData("Material You", "themeIndex")) || 1;
 
-      if (accentIndex !== "1") {
-        this.accent.setAccent(accentIndex);
+        if (accentIndex !== "1") {
+          this.accent.setAccent(accentIndex);
+        }
+      } catch (error) {
+        console.error("Error initializing browser features:", error);
       }
     }
   }

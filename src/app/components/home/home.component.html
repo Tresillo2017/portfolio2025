@@ -1,39 +1,40 @@
 <main class="portfolio-body">
   <theme-switcher *ngIf="isBrowser"></theme-switcher>
+  <translate *ngIf="isBrowser"></translate>
 
-  <translate></translate>
-
-  <hero-banner></hero-banner>
-  <section class="profile-intro">
+  <hero-banner *ngIf="isBrowser"></hero-banner>
+  <section class="profile-intro" *ngIf="isBrowser">
     <profile-card></profile-card>
     <profile-info></profile-info>
   </section>
-  <section class="profile-body profile-body--standalone">
+  <section class="profile-body profile-body--standalone" *ngIf="isBrowser">
     <other-sites></other-sites>
   </section>
   <section
     class="skill-section profile-body profile-body--themed profile-body--themed-secondary"
+    *ngIf="isBrowser"
   >
     <article class="skill-section__container">
       <skill-picture></skill-picture>
       <skill-info></skill-info>
     </article>
   </section>
-  <section class="at-a-glance">
+  <section class="at-a-glance" *ngIf="isBrowser">
     <life-at-a-glance></life-at-a-glance>
   </section>
   <section
     class="skill-section profile-body profile-body--themed profile-body--themed-tertiary"
+    *ngIf="isBrowser"
   >
     <article class="skill-section__container">
       <skill-list></skill-list>
     </article>
   </section>
-  <section class="profile-body">
+  <section class="profile-body" *ngIf="isBrowser">
     <resume-request></resume-request>
   </section>
 </main>
-<updating-snackbar></updating-snackbar>
-<app-footer></app-footer>
+<updating-snackbar *ngIf="isBrowser"></updating-snackbar>
+<app-footer *ngIf="isBrowser"></app-footer>
 
 <router-outlet></router-outlet>

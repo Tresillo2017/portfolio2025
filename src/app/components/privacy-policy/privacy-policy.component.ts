@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID,
+} from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { AccentService } from "@services/accent-service.service";
 import { BackgroundService } from "@services/background.service";
@@ -11,7 +18,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./privacy-policy.component.scss"],
 })
 export class PrivacyPolicyComponent implements OnInit, OnDestroy {
-  images: Array<string>;
+  images: Array<string> = [];
+  isBrowser: boolean;
   heroImage: string = "";
   secondHeroImage: string | undefined;
   isSecondHeroImageActive = false;
@@ -25,11 +33,14 @@ export class PrivacyPolicyComponent implements OnInit, OnDestroy {
     private accent: AccentService,
     private backgroundService: BackgroundService,
     private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    this.images = this.accent.images;
-
-    // Initialize background if needed
-    this.backgroundService.initializeBackground();
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    if (this.isBrowser) {
+      this.images = this.accent.images;
+      this.backgroundService.initializeBackground();
+      this.translate.setDefaultLang("en"); // Move translation init here
+    }
   }
 
   goBack(): void {
@@ -37,40 +48,42 @@ export class PrivacyPolicyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Subscribe to background service updates
-    this.subscriptions.push(
-      this.backgroundService.activeImage$.subscribe((image) => {
-        this.heroImage = image;
-      }),
+    if (this.isBrowser) {
+      // Subscribe to background service updates
+      this.subscriptions.push(
+        this.backgroundService.activeImage$.subscribe((image) => {
+          this.heroImage = image;
+        }),
 
-      this.backgroundService.secondaryImage$.subscribe((image) => {
-        this.secondHeroImage = image;
-      }),
+        this.backgroundService.secondaryImage$.subscribe((image) => {
+          this.secondHeroImage = image;
+        }),
 
-      this.backgroundService.customImage$.subscribe((image) => {
-        this.customImage = image;
-      }),
+        this.backgroundService.customImage$.subscribe((image) => {
+          this.customImage = image;
+        }),
 
-      this.backgroundService.activeIndex$.subscribe((index) => {
-        this.activeIndex = index;
-      }),
+        this.backgroundService.activeIndex$.subscribe((index) => {
+          this.activeIndex = index;
+        }),
 
-      this.backgroundService.isSecondImageActive$.subscribe((isActive) => {
-        this.isSecondHeroImageActive = isActive;
-      }),
-    );
+        this.backgroundService.isSecondImageActive$.subscribe((isActive) => {
+          this.isSecondHeroImageActive = isActive;
+        }),
+      );
 
-    // Subscribe to accent changes
-    this.subscriptions.push(
-      this.accent.accentSubscription.subscribe((index: number) => {
-        this.backgroundService.updateImages({
-          activeImage: this.accent.images[index],
-          customImage: this.accent.customImage,
-          activeIndex: index,
-          isSecondImageActive: false,
-        });
-      }),
-    );
+      // Subscribe to accent changes
+      this.subscriptions.push(
+        this.accent.accentSubscription.subscribe((index: number) => {
+          this.backgroundService.updateImages({
+            activeImage: this.accent.images[index],
+            customImage: this.accent.customImage,
+            activeIndex: index,
+            isSecondImageActive: false,
+          });
+        }),
+      );
+    }
   }
 
   ngOnDestroy() {

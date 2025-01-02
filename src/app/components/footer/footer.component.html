@@ -1,5 +1,5 @@
 <footer class="footer">
-  <header class="footer__scroll-header">
+  <header class="footer__scroll-header" *ngIf="isBrowser">
     <a class="footer__scroll-to-top-container" href="#hero-banner">
       <span class="footer__scroll-icon material-symbols-rounded">
         keyboard_double_arrow_up
@@ -9,9 +9,9 @@
   <section class="footer__links">
     <a
       *ngFor="let link of footerLinks"
-      href="{{ link.link }}"
+      [href]="link.link"
       class="footer__link"
-      title="{{ link.text }}"
+      [title]="link.text"
       (click)="handleClick(link.link, link.isExternal, $event)"
     >
       <div class="footer__link-wrapper">

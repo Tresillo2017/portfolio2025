@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID,
+} from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { AccentService } from "@services/accent-service.service";
 import { BackgroundService } from "@services/background.service";
@@ -11,7 +18,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./terms-of-service.component.scss"],
 })
 export class TermsOfServiceComponent implements OnInit, OnDestroy {
-  images: Array<string>;
+  images: Array<string> = [];
+  isBrowser: boolean;
   heroImage: string = "";
   secondHeroImage: string | undefined;
   isSecondHeroImageActive = false;
@@ -25,11 +33,14 @@ export class TermsOfServiceComponent implements OnInit, OnDestroy {
     private accent: AccentService,
     private backgroundService: BackgroundService,
     private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    this.images = this.accent.images;
-
-    // Initialize background if needed
-    this.backgroundService.initializeBackground();
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    if (this.isBrowser) {
+      this.images = this.accent.images;
+      this.backgroundService.initializeBackground();
+      this.translate.setDefaultLang("en"); // Move translation init here
+    }
   }
 
   goBack(): void {
