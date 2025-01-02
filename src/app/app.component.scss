@@ -1,5 +1,27 @@
 @import "material-you";
 
+.controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  padding: 2rem;
+
+  &__group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    &__group {
+      gap: 0.5rem;
+    }
+  }
+}
+
 .profile-intro {
   display: flex;
   gap: 2rem;

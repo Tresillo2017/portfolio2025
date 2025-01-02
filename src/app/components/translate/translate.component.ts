@@ -3,11 +3,38 @@ import { TranslateService } from "@ngx-translate/core";
 import { IdbService } from "@services/idb.service";
 import { AccentService } from "@services/accent-service.service";
 import { isPlatformBrowser } from "@angular/common";
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  state,
+} from "@angular/animations";
 
 @Component({
   selector: "translate",
   templateUrl: "./translate.component.html",
   styleUrls: ["./translate.component.scss"],
+  animations: [
+    trigger("flagAnimation", [
+      state(
+        "active",
+        style({
+          transform: "scale(1.05)",
+          opacity: 1,
+        }),
+      ),
+      state(
+        "inactive",
+        style({
+          transform: "scale(1)",
+          opacity: 0.7,
+        }),
+      ),
+      transition("inactive => active", [animate("200ms ease-out")]),
+      transition("active => inactive", [animate("200ms ease-in")]),
+    ]),
+  ],
 })
 export class TranslateComponent implements OnInit {
   currentLanguage: "en" | "es" = "en";

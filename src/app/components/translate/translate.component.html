@@ -1,9 +1,24 @@
-<button (click)="toggleLanguage()" class="translate">
-  <span class="material-symbols-rounded translate__toggle-icon">
-    <ng-container *ngIf="currentLanguage === 'en'; else spanishMode">
-      language_gb_english
-    </ng-container>
-    <ng-template #spanishMode> language_spanish </ng-template>
-  </span>
-  {{ "LANGUAGE" | translate }}
+<button
+  (click)="toggleLanguage()"
+  class="translate"
+  [class.translate--active]="currentLanguage === 'es'"
+>
+  <div class="translate__content">
+    <div class="translate__flags">
+      <div
+        class="translate__flag"
+        [class.translate__flag--active]="currentLanguage === 'en'"
+      >
+        <!-- <span class="material-symbols-rounded"></span> -->
+        <span class="translate__language">English</span>
+      </div>
+      <div
+        class="translate__flag"
+        [class.translate__flag--active]="currentLanguage === 'es'"
+      >
+        <!-- <span class="material-symbols-rounded"></span> -->
+        <span class="translate__language">Español</span>
+      </div>
+    </div>
+  </div>
 </button>

@@ -1,4 +1,4 @@
-<article class="terms-of-service">
+<article class="terms-of-service" *ngIf="isBrowser">
   <div class="terms-of-service__back-button-container">
     <a class="terms-of-service__back-button" (click)="goBack()">
       <span class="material-symbols-rounded">arrow_back</span>
@@ -37,61 +37,115 @@
     [imageWidth]="1024"
     [isLazyLoaded]="false"
   ></responsive-image>
+
   <section class="terms-of-service__container">
-    <div class="terms-of-service__text-container">
+    <div class="terms-of-service__text-container" [@fadeInUp]>
       <h1 class="terms-of-service__header">
+        <span class="material-symbols-rounded">gavel</span>
         {{ "TERMS_OF_SERVICE.TITLE" | translate }}
       </h1>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.ACCEPTANCE.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.ACCEPTANCE.CONTENT" | translate }}</p>
+      <!-- Acceptance -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">check_circle</span>
+          <h2>{{ "TERMS_OF_SERVICE.ACCEPTANCE.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.ACCEPTANCE.CONTENT" | translate }}</p>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.ACCURACY.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.ACCURACY.CONTENT" | translate }}</p>
+      <!-- Accuracy -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">verified</span>
+          <h2>{{ "TERMS_OF_SERVICE.ACCURACY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.ACCURACY.CONTENT" | translate }}</p>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.CONDUCT.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.CONDUCT.CONTENT" | translate }}</p>
-        <ul>
-          <li *ngFor="let item of 'TERMS_OF_SERVICE.CONDUCT.ITEMS' | translate">
-            {{ item }}
-          </li>
-        </ul>
+      <!-- Conduct -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">rule</span>
+          <h2>{{ "TERMS_OF_SERVICE.CONDUCT.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.CONDUCT.CONTENT" | translate }}</p>
+          <ul [@staggerList]>
+            <li
+              *ngFor="let item of 'TERMS_OF_SERVICE.CONDUCT.ITEMS' | translate"
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.PROPERTY.TITLE" | translate }}</h2>
-        <ul>
-          <li
-            *ngFor="let item of 'TERMS_OF_SERVICE.PROPERTY.ITEMS' | translate"
-          >
-            {{ item }}
-          </li>
-        </ul>
+      <!-- Property -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">copyright</span>
+          <h2>{{ "TERMS_OF_SERVICE.PROPERTY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <ul [@staggerList]>
+            <li
+              *ngFor="let item of 'TERMS_OF_SERVICE.PROPERTY.ITEMS' | translate"
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.LIABILITY.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.LIABILITY.CONTENT" | translate }}</p>
+      <!-- Liability -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">balance</span>
+          <h2>{{ "TERMS_OF_SERVICE.LIABILITY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.LIABILITY.CONTENT" | translate }}</p>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.PRIVACY.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.PRIVACY.CONTENT" | translate }}</p>
+      <!-- Privacy -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">security</span>
+          <h2>{{ "TERMS_OF_SERVICE.PRIVACY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.PRIVACY.CONTENT" | translate }}</p>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.MODIFICATIONS.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.MODIFICATIONS.CONTENT" | translate }}</p>
+      <!-- Modifications -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">update</span>
+          <h2>{{ "TERMS_OF_SERVICE.MODIFICATIONS.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.MODIFICATIONS.CONTENT" | translate }}</p>
+        </div>
       </section>
 
-      <section class="terms-of-service__section">
-        <h2>{{ "TERMS_OF_SERVICE.CONTACT.TITLE" | translate }}</h2>
-        <p>{{ "TERMS_OF_SERVICE.CONTACT.CONTENT" | translate }}</p>
+      <!-- Contact -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">contact_support</span>
+          <h2>{{ "TERMS_OF_SERVICE.CONTACT.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.CONTACT.CONTENT" | translate }}</p>
+        </div>
       </section>
     </div>
   </section>

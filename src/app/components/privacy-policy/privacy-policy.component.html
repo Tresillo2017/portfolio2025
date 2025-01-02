@@ -7,6 +7,8 @@
       }}</span>
     </a>
   </div>
+
+  <!-- Background Images -->
   <img
     *ngIf="customImage"
     [src]="customImage"
@@ -37,102 +39,157 @@
     [imageWidth]="1024"
     [isLazyLoaded]="false"
   ></responsive-image>
+
   <section class="privacy-policy__container">
-    <div class="privacy-policy__text-container">
+    <div class="privacy-policy__text-container" [@fadeInUp]>
+      <!-- Header -->
       <h1 class="privacy-policy__header">
+        <span class="material-symbols-rounded">privacy_tip</span>
         {{ "PRIVACY_POLICY.TITLE" | translate }}
       </h1>
-      <p class="privacy-policy__last-updated">
-        {{ "PRIVACY_POLICY.LAST_UPDATED" | translate }}: 2024-11-03
-      </p>
+      <div style="display: flex; justify-content: center; width: 100%">
+        <p class="privacy-policy__last-updated">
+          <span class="material-symbols-rounded">update</span>
+          {{ "PRIVACY_POLICY.LAST_UPDATED" | translate }}: 2024-11-03
+        </p>
+      </div>
 
       <!-- Information Collection -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.INFO_COLLECT.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.INFO_COLLECT.CONTENT" | translate }}</p>
-        <ul>
-          <li
-            *ngFor="
-              let item of 'PRIVACY_POLICY.SECTIONS.INFO_COLLECT.ITEMS'
-                | translate
-            "
-          >
-            {{ item }}
-          </li>
-        </ul>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">data_usage</span>
+          <h2>
+            {{ "PRIVACY_POLICY.SECTIONS.INFO_COLLECT.TITLE" | translate }}
+          </h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>
+            {{ "PRIVACY_POLICY.SECTIONS.INFO_COLLECT.CONTENT" | translate }}
+          </p>
+          <ul [@staggerList]>
+            <li
+              *ngFor="
+                let item of 'PRIVACY_POLICY.SECTIONS.INFO_COLLECT.ITEMS'
+                  | translate
+              "
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- Why We Collect -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.WHY_COLLECT.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.WHY_COLLECT.CONTENT" | translate }}</p>
-        <ul>
-          <li
-            *ngFor="
-              let item of 'PRIVACY_POLICY.SECTIONS.WHY_COLLECT.ITEMS'
-                | translate
-            "
-          >
-            {{ item }}
-          </li>
-        </ul>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">psychology</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.WHY_COLLECT.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>{{ "PRIVACY_POLICY.SECTIONS.WHY_COLLECT.CONTENT" | translate }}</p>
+          <ul [@staggerList]>
+            <li
+              *ngFor="
+                let item of 'PRIVACY_POLICY.SECTIONS.WHY_COLLECT.ITEMS'
+                  | translate
+              "
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- Sharing of Information -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.SHARING.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.SHARING.CONTENT" | translate }}</p>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">share</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.SHARING.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>{{ "PRIVACY_POLICY.SECTIONS.SHARING.CONTENT" | translate }}</p>
+        </div>
       </section>
 
       <!-- Storage and Security -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.STORAGE.TITLE" | translate }}</h2>
-        <ul>
-          <li
-            *ngFor="
-              let item of 'PRIVACY_POLICY.SECTIONS.STORAGE.ITEMS' | translate
-            "
-          >
-            {{ item }}
-          </li>
-        </ul>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">database</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.STORAGE.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <ul [@staggerList]>
+            <li
+              *ngFor="
+                let item of 'PRIVACY_POLICY.SECTIONS.STORAGE.ITEMS' | translate
+              "
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- User Rights -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.USER_RIGHTS.TITLE" | translate }}</h2>
-        <ul>
-          <li
-            *ngFor="
-              let item of 'PRIVACY_POLICY.SECTIONS.USER_RIGHTS.ITEMS'
-                | translate
-            "
-          >
-            {{ item }}
-          </li>
-        </ul>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">verified_user</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.USER_RIGHTS.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <ul [@staggerList]>
+            <li
+              *ngFor="
+                let item of 'PRIVACY_POLICY.SECTIONS.USER_RIGHTS.ITEMS'
+                  | translate
+              "
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- Age Restrictions -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.AGE.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.AGE.CONTENT" | translate }}</p>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">person</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.AGE.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>{{ "PRIVACY_POLICY.SECTIONS.AGE.CONTENT" | translate }}</p>
+        </div>
       </section>
 
       <!-- Cookies -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.COOKIES.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.COOKIES.CONTENT" | translate }}</p>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">cookie</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.COOKIES.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>{{ "PRIVACY_POLICY.SECTIONS.COOKIES.CONTENT" | translate }}</p>
+        </div>
       </section>
 
       <!-- Contact Information -->
-      <section class="privacy-policy__section">
-        <h2>{{ "PRIVACY_POLICY.SECTIONS.CONTACT.TITLE" | translate }}</h2>
-        <p>{{ "PRIVACY_POLICY.SECTIONS.CONTACT.CONTENT" | translate }}</p>
+      <section class="privacy-policy__section" [@fadeInUp]>
+        <div class="privacy-policy__section-header">
+          <span class="material-symbols-rounded">contact_support</span>
+          <h2>{{ "PRIVACY_POLICY.SECTIONS.CONTACT.TITLE" | translate }}</h2>
+        </div>
+        <div class="privacy-policy__section-content">
+          <p>{{ "PRIVACY_POLICY.SECTIONS.CONTACT.CONTENT" | translate }}</p>
+        </div>
       </section>
     </div>
   </section>
 
+  <!-- Wave Animation -->
   <svg
     class="privacy-policy__waves"
     xmlns="http://www.w3.org/2000/svg"

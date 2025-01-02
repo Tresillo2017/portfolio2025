@@ -127,7 +127,7 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
       );
 
       christmas.snowStorm({
-        maxSnowflakes: 200,
+        maxSnowflakes: 100,
         fallSpeed: 1.25,
       });
     }

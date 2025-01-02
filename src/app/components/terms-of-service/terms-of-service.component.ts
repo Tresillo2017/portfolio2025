@@ -11,11 +11,55 @@ import { AccentService } from "@services/accent-service.service";
 import { BackgroundService } from "@services/background.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  query,
+  stagger,
+} from "@angular/animations";
 
 @Component({
   selector: "app-terms-of-service",
   templateUrl: "./terms-of-service.component.html",
   styleUrls: ["./terms-of-service.component.scss"],
+  animations: [
+    trigger("fadeInUp", [
+      transition(":enter", [
+        style({
+          opacity: 0,
+          transform: "translateY(20px)",
+        }),
+        animate(
+          "400ms ease-out",
+          style({
+            opacity: 1,
+            transform: "translateY(0)",
+          }),
+        ),
+      ]),
+    ]),
+    trigger("staggerList", [
+      transition(":enter", [
+        query("li", [
+          style({
+            opacity: 0,
+            transform: "translateX(-20px)",
+          }),
+          stagger(100, [
+            animate(
+              "300ms ease-out",
+              style({
+                opacity: 1,
+                transform: "translateX(0)",
+              }),
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+  ],
 })
 export class TermsOfServiceComponent implements OnInit, OnDestroy {
   images: Array<string> = [];
