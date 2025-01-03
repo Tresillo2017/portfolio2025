@@ -63,19 +63,32 @@
     display: flex;
     grid-gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap; // Add this to allow links to wrap
+    justify-content: center; // Center the wrapped items
+    padding: 1rem 0; // Add some padding
+
+    @include media-breakpoint-down(sm) {
+      grid-gap: 0.75rem; // Reduce gap on smaller screens
+    }
   }
 
   &__link {
     @include material-basic--primary;
 
-    padding: 10px;
-    width: 48px;
-    height: 48px;
+    padding: 8px; // Slightly reduce padding
+    width: 42px; // Slightly reduce size
+    height: 42px; // Slightly reduce size
     border-radius: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 0;
+
+    @include media-breakpoint-down(sm) {
+      padding: 6px; // Further reduce padding on mobile
+      width: 36px; // Further reduce size on mobile
+      height: 36px; // Further reduce size on mobile
+    }
 
     &:hover {
       @include material-inverted--primary;
@@ -86,6 +99,11 @@
     display: flex;
     align-items: center;
     text-align: center;
+    padding: 0 1rem; // Add horizontal padding
+
+    @include media-breakpoint-down(sm) {
+      font-size: 0.9rem; // Slightly smaller text on mobile
+    }
   }
 
   &__author {
@@ -95,5 +113,8 @@
     display: inline-flex;
     align-items: center;
     font-weight: bold;
+    @include media-breakpoint-down(sm) {
+      padding: 0.25rem; // Reduce padding on mobile
+    }
   }
 }
