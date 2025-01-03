@@ -2,11 +2,20 @@ import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { AccentService } from "@services/accent-service.service";
 import { IdbService } from "@services/idb.service";
+import { trigger, transition, style, animate } from "@angular/animations";
 
 @Component({
   selector: "theme-switcher",
   templateUrl: "./theme-switcher.component.html",
   styleUrls: ["./theme-switcher.component.scss"],
+  animations: [
+    trigger("modeChange", [
+      transition(":enter", [
+        style({ opacity: 0, transform: "scale(0.8)" }),
+        animate("200ms ease-out", style({ opacity: 1, transform: "scale(1)" })),
+      ]),
+    ]),
+  ],
 })
 export class ThemeSwitcherComponent implements OnInit {
   themeMode: "dark" | "light" = "light";
