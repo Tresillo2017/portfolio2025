@@ -19,8 +19,6 @@ import {
   state,
   group,
 } from "@angular/animations";
-import JSChristmas from "jschristmas";
-const christmas = new JSChristmas();
 
 @Component({
   selector: "hero-banner",
@@ -125,11 +123,6 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
         () => this.fetchNowListening(),
         60000,
       );
-
-      christmas.snowStorm({
-        maxSnowflakes: 100,
-        fallSpeed: 1.25,
-      });
     }
   }
 
