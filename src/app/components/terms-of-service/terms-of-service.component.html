@@ -1,0 +1,175 @@
+<article class="terms-of-service" *ngIf="isBrowser">
+  <div class="terms-of-service__back-button-container">
+    <a class="terms-of-service__back-button" (click)="goBack()">
+      <span class="material-symbols-rounded">arrow_back</span>
+      <span class="terms-of-service__back-text">{{
+        "BACK_TO_HOME" | translate
+      }}</span>
+    </a>
+  </div>
+  <img
+    *ngIf="customImage"
+    [src]="customImage"
+    class="terms-of-service__img terms-of-service__cover--custom-image"
+    [class.terms-of-service__img--custom-image-disabled]="activeIndex !== 0"
+    alt="Custom image for material theming"
+  />
+  <responsive-image
+    [imageName]="heroImage + '-min'"
+    class="terms-of-service__img terms-of-service__img--first-image"
+    [class.terms-of-service__img--first-image-disabled]="
+      isSecondHeroImageActive || activeIndex === 0
+    "
+    [imageAlt]="'First hero banner ' + heroImage + ' image'"
+    [imageHeight]="576"
+    [imageWidth]="1024"
+    [isLazyLoaded]="false"
+  ></responsive-image>
+  <responsive-image
+    *ngIf="secondHeroImage && activeIndex !== 0"
+    [imageName]="secondHeroImage + '-min'"
+    class="terms-of-service__img terms-of-service__img--second-image"
+    [class.terms-of-service__img--second-image-disabled]="
+      !isSecondHeroImageActive || activeIndex === 0
+    "
+    [imageAlt]="'Second hero banner ' + heroImage + ' image'"
+    [imageHeight]="576"
+    [imageWidth]="1024"
+    [isLazyLoaded]="false"
+  ></responsive-image>
+
+  <section class="terms-of-service__container">
+    <div class="terms-of-service__text-container" [@fadeInUp]>
+      <h1 class="terms-of-service__header">
+        <span class="material-symbols-rounded">gavel</span>
+        {{ "TERMS_OF_SERVICE.TITLE" | translate }}
+      </h1>
+
+      <!-- Acceptance -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">check_circle</span>
+          <h2>{{ "TERMS_OF_SERVICE.ACCEPTANCE.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.ACCEPTANCE.CONTENT" | translate }}</p>
+        </div>
+      </section>
+
+      <!-- Accuracy -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">verified</span>
+          <h2>{{ "TERMS_OF_SERVICE.ACCURACY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.ACCURACY.CONTENT" | translate }}</p>
+        </div>
+      </section>
+
+      <!-- Conduct -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">rule</span>
+          <h2>{{ "TERMS_OF_SERVICE.CONDUCT.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.CONDUCT.CONTENT" | translate }}</p>
+          <ul [@staggerList]>
+            <li
+              *ngFor="let item of 'TERMS_OF_SERVICE.CONDUCT.ITEMS' | translate"
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Property -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">copyright</span>
+          <h2>{{ "TERMS_OF_SERVICE.PROPERTY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <ul [@staggerList]>
+            <li
+              *ngFor="let item of 'TERMS_OF_SERVICE.PROPERTY.ITEMS' | translate"
+            >
+              <span class="material-symbols-rounded">arrow_right</span>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Liability -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">balance</span>
+          <h2>{{ "TERMS_OF_SERVICE.LIABILITY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.LIABILITY.CONTENT" | translate }}</p>
+        </div>
+      </section>
+
+      <!-- Privacy -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">security</span>
+          <h2>{{ "TERMS_OF_SERVICE.PRIVACY.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.PRIVACY.CONTENT" | translate }}</p>
+        </div>
+      </section>
+
+      <!-- Modifications -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">update</span>
+          <h2>{{ "TERMS_OF_SERVICE.MODIFICATIONS.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.MODIFICATIONS.CONTENT" | translate }}</p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="terms-of-service__section" [@fadeInUp]>
+        <div class="terms-of-service__section-header">
+          <span class="material-symbols-rounded">contact_support</span>
+          <h2>{{ "TERMS_OF_SERVICE.CONTACT.TITLE" | translate }}</h2>
+        </div>
+        <div class="terms-of-service__section-content">
+          <p>{{ "TERMS_OF_SERVICE.CONTACT.CONTENT" | translate }}</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Waves -->
+  <svg
+    class="terms-of-service__waves"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28"
+    preserveAspectRatio="none"
+    shape-rendering="auto"
+  >
+    <defs>
+      <path
+        id="gentle-wave"
+        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+      />
+    </defs>
+    <g class="terms-of-service__wave-parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" />
+      <use xlink:href="#gentle-wave" x="48" y="3" />
+      <use xlink:href="#gentle-wave" x="48" y="5" />
+      <use xlink:href="#gentle-wave" x="48" y="7" />
+    </g>
+  </svg>
+</article>

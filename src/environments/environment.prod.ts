@@ -1,4 +1,4 @@
 export const environment = {
-  lastfmApiKey: '',
+  lastfmApiKey: "",
   production: true,
 };

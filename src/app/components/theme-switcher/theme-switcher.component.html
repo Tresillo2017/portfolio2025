@@ -1,11 +1,25 @@
-<button (click)="toggleThemeMode()" class="theme-switcher">
-	<span class="material-symbols-rounded theme-swticher__toggle-icon">
-		<ng-container *ngIf="themeMode === 'light'; else lightMode">
-			dark_mode
-		</ng-container>
-		<ng-template #lightMode>
-			light_mode
-		</ng-template>
-	</span>
-	{{'TOGGLE_THEME' | translate}}
+<button
+  *ngIf="isBrowser"
+  (click)="toggleThemeMode()"
+  class="theme-switcher"
+  [class.theme-switcher--dark]="themeMode === 'dark'"
+>
+  <div class="theme-switcher__content">
+    <div class="theme-switcher__modes">
+      <div
+        class="theme-switcher__mode"
+        [class.theme-switcher__mode--active]="themeMode === 'light'"
+      >
+        <span class="material-symbols-rounded">light_mode</span>
+        <span class="theme-switcher__label">Light</span>
+      </div>
+      <div
+        class="theme-switcher__mode"
+        [class.theme-switcher__mode--active]="themeMode === 'dark'"
+      >
+        <span class="material-symbols-rounded">dark_mode</span>
+        <span class="theme-switcher__label">Dark</span>
+      </div>
+    </div>
+  </div>
 </button>

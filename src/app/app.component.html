@@ -1,35 +1,15 @@
-<main class="portfolio-body">
-	<theme-switcher *ngIf="isBrowser"></theme-switcher>
+<div class="controls">
+  <div class="controls__group">
+    <theme-switcher></theme-switcher>
+    <translate></translate>
+  </div>
+</div>
 
-  <translate></translate>
+<!-- Router outlet where page-specific content will be displayed -->
+<div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
+</div>
 
-  <hero-banner></hero-banner>
-	<section class="profile-intro">
-		<profile-card></profile-card>
-		<profile-info></profile-info>
-	</section>
-	<section class="profile-body profile-body--standalone">
-		<other-sites></other-sites>
-	</section>
-	<section class="skill-section profile-body profile-body--themed profile-body--themed-secondary">
-		<article class="skill-section__container">
-			<skill-picture></skill-picture>
-			<skill-info></skill-info>
-		</article>
-	</section>
-	<section class="at-a-glance">
-		<life-at-a-glance></life-at-a-glance>
-	</section>
-	<section class="skill-section profile-body profile-body--themed profile-body--themed-tertiary">
-		<article class="skill-section__container">
-			<skill-list></skill-list>
-		</article>
-	</section>
-	<section class="profile-body">
-		<resume-request></resume-request>
-	</section>
-</main>
+<!-- Footer and update notification that should be present on all pages -->
+<footer></footer>
 <updating-snackbar></updating-snackbar>
-<app-footer></app-footer>
-
-<router-outlet></router-outlet>

@@ -49,3 +49,7 @@ docs/CNAME
 # /src/assets/img/*.jpeg
 # /src/assets/img/*.jpg
 
+src/.env
+/src/environments
+src/environments/environment.prod.ts
+src/environments/environment.prod.ts
