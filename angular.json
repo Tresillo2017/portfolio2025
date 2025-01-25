@@ -31,7 +31,7 @@
               "src/replace-env.js",
               {
                 "glob": "**/*",
-                "input": "src/.well-known",
+                "input": "src/app/.well-known",
                 "output": "/.well-known"
               }
             ],
