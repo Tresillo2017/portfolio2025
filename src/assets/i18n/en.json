@@ -76,6 +76,12 @@
       "link": "https://photography.tomasps.com",
       "image": "web-stories",
       "description": "All my photography work is hosted here. It's on flickr"
+    },
+    {
+      "name": "SafeCircle",
+      "link": "https://safecircle.tech",
+      "image": "safecircle",
+      "description": "SafeCircle is an AI that detects child predators in messages while maintaning user privacy."
     }
   ],
   "EXPLORE": "Explore tomasps.com",
