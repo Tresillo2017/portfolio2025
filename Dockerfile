@@ -11,8 +11,6 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 ENV NODE_ENV=production
 RUN pnpm run build
 
-RUN pnpm run build
-
 FROM base AS dokploy
 WORKDIR /app
 ENV NODE_ENV=production
@@ -23,5 +21,4 @@ COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/node_modules ./node_modules
 
 EXPOSE 3000
-CMD ["pnpm", "start"]
 CMD ["pnpm", "start"]
