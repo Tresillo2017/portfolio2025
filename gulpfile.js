@@ -19,8 +19,6 @@ const compress = () =>
 					{ width: 512, format: "avif", rename: { suffix: "-512" } },
 					{ width: 1024, format: "avif", rename: { suffix: "-1024" } },
 				],
-				errorOnInvalidImages: false,
-				skipOnError: true
 			})
 		)
 		.pipe(dest("src/assets/img"));
