@@ -5,7 +5,6 @@
     "ng": "ng",
     "prestart": "node src/replace-env.js",
     "start": "bunx gulp compress && ng serve",
-    "prebuild": "bunx gulp compress",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -65,7 +64,7 @@
     "karma-coverage": "^2.2.1",
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
-    "typescript": "^5.5.4"
+    "typescript": "~5.5.4"
   },
   "trustedDependencies": [
     "es5-ext"
@@ -74,7 +73,10 @@
     "onlyBuiltDependencies": [
       "es5-ext",
       "esbuild",
-      "lmdb"
+      "lmdb",
+      "msgpackr-extract",
+      "nice-napi",
+      "sharp"
     ]
   }
 }
