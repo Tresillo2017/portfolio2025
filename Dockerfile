@@ -1,24 +1,38 @@
-FROM node:18-alpine AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+# Stage 1: NPM build
+FROM node:22 AS build
 
-FROM base AS build
-WORKDIR /
-COPY . .
-COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-ENV NODE_ENV=production
-RUN pnpm run build
-
-FROM base AS dokploy
+# Set directories
 WORKDIR /app
-ENV NODE_ENV=production
+COPY . /app
 
-# Copy only the necessary files
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/node_modules ./node_modules
+# Install packages and prerender images
+RUN npm i
+RUN npm run generate-images
+RUN npm run build
 
-EXPOSE 3000
-CMD ["pnpm", "start"]
+
+# Stage 2: Serve the application using Node (Angular Universal)
+FROM node:22 AS serve
+
+WORKDIR /app
+
+# Copy the entire built output so the folder structure remains intact.
+COPY --from=build /app/dist/dartegnians-portfolio /app/dist/dartegnians-portfolio
+
+# Copy the API folder from the build stage
+COPY --from=build /app/api /app/api
+
+# Copy the container-only entry file from the docker folder.
+COPY docker/container-entry.mjs /app/container-entry.mjs
+
+# Copy package manifest so we can install production dependencies.
+COPY --from=build /app/package*.json ./
+
+# Install only production dependencies (like express)
+RUN npm install --production
+
+# Expose the SSR port
+EXPOSE 4000
+
+# Use the container-only entry file to bootstrap the app
+CMD ["node", "--experimental-specifier-resolution=node", "container-entry.mjs"]
