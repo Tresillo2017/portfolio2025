@@ -69,5 +69,14 @@
   },
   "trustedDependencies": [
     "es5-ext"
-  ]
+  ],
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "es5-ext",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract",
+      "sharp"
+    ]
+  }
 }
