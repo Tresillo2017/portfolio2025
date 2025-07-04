@@ -76,6 +76,12 @@
       "link": "https://photography.tomasps.com",
       "image": "web-stories",
       "description": "Todo mi trabajo fotográfico está alojado aquí. Está en flickr"
+    },
+    {
+      "name": "SafeCircle",
+      "link": "https://safecircle.tech",
+      "image": "safecircle",
+      "description": "SafeCircle es una IA que detecta pederastas en mensajes, manteniendo la privacidad de los usuarios"
     }
   ],
   "EXPLORE": "Explora tomasps.com",
