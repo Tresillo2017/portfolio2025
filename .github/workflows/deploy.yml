@@ -44,7 +44,7 @@ jobs:
           curl -X 'POST' \
           'https://dokploy.tomasps.com/api/trpc/application.deploy' \
           -H 'accept: application/json' \
-          -H 'x-api-key: ${{ secrets.DOKPLOY_API_KEY }}' \
+          -H 'Authorization: Bearer ${{ secrets.DOKPLOY_API_KEY }}' \
           -H 'Content-Type: application/json' \
           -d '{
               "json":{
