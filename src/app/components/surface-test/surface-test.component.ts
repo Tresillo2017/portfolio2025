@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
-	selector: 'surface-test',
-	templateUrl: './surface-test.component.html',
-	styleUrls: ['./surface-test.component.scss']
+    selector: 'surface-test',
+    templateUrl: './surface-test.component.html',
+    styleUrls: ['./surface-test.component.scss'],
+    imports: [NgClass]
 })
 export class SurfaceTestComponent implements OnInit {
 	surfaces: Array<Array<String>> = [

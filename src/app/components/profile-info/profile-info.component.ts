@@ -3,9 +3,10 @@ import { TranslateService } from "@ngx-translate/core";
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-	selector: 'profile-info',
-	templateUrl: './profile-info.component.html',
-	styleUrls: ['./profile-info.component.scss']
+    selector: 'profile-info',
+    templateUrl: './profile-info.component.html',
+    styleUrls: ['./profile-info.component.scss'],
+    imports: [NgTemplateOutlet]
 })
 export class ProfileInfoComponent implements OnInit {
   description: string = "";

@@ -1,19 +1,21 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import MetaTags from '@interfaces/meta-tags.interface';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class MetaService {
+	private meta = inject(Meta);
+	private titleService = inject(Title);
+	private platformId = inject<Object>(PLATFORM_ID);
+	private router = inject(Router);
+	private document = inject(DOCUMENT);
 	isBrowser: boolean = false;
 
-	constructor(
-		private meta: Meta,
-		private titleService: Title,
-		@Inject(PLATFORM_ID) private platformId: Object
-	) {
+	constructor() {
 		this.isBrowser = isPlatformBrowser(this.platformId);
 	}
 
@@ -45,10 +47,10 @@ export class MetaService {
 
 	updateFavicons(favicons: { type: string; sizes: string; href: string }[]) {
 		if (this.isBrowser) {
-			// Remove existing favicons
-			const existingIcons = document.querySelectorAll("link[rel*='icon']");
-			existingIcons.forEach(icon => icon.remove());
-			this.writeFavicons(favicons);
+		// Remove existing favicons
+		const existingIcons = document.querySelectorAll("link[rel*='icon']");
+		existingIcons.forEach(icon => icon.remove());
+		this.writeFavicons(favicons);
 		}
 	}
 

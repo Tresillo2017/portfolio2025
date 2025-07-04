@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResponsiveImageComponent } from './responsive-image.component';
+import { ResponsiveImageComponent } from '@components/responsive-image.component';
 
 describe('ResponsiveImageComponent', () => {
   let component: ResponsiveImageComponent;
@@ -8,8 +8,8 @@ describe('ResponsiveImageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResponsiveImageComponent ]
-    })
+    imports: [ResponsiveImageComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ResponsiveImageComponent);

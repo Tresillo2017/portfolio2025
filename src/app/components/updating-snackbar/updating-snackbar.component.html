@@ -1,8 +1,16 @@
 <div
-	class="updating-snackbar fade-in--up"
 	#updatingSnackbar
+	class="updating-snackbar"
+	[class.fade-in--down]="isFadingDown"
+	[class.fade-in--up]="isFadingUp"
+	[class.updating-snackbar--hidden]="hasInitiallyCheckedForUpdates"
 >
-	<span class="updating-snackbar__loader" *ngIf="isSpinnerShown && !isIconShown"></span>
-	<span class="updating-snackbar__check material-symbols-rounded" *ngIf="isIconShown">{{ iconText }}</span>
+	@if (isSpinnerShown) {
+		<app-loading-circle></app-loading-circle>
+	} @else {
+	<span class="updating-snackbar__check material-symbols-rounded">{{
+		iconText
+		}}</span>
+	}
 	{{ updateText }}
 </div>

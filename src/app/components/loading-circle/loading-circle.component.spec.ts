@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppShellComponent } from './app-shell.component';
+import { LoadingCircleComponent } from './loading-circle.component';
 
-describe('AppShellComponent', () => {
-  let component: AppShellComponent;
-  let fixture: ComponentFixture<AppShellComponent>;
+describe('LoadingCircleComponent', () => {
+  let component: LoadingCircleComponent;
+  let fixture: ComponentFixture<LoadingCircleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppShellComponent ]
+      imports: [LoadingCircleComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AppShellComponent);
+    fixture = TestBed.createComponent(LoadingCircleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

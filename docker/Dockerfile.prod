@@ -1,0 +1,38 @@
+# Stage 1: NPM build
+FROM node:22 AS build
+
+# Set directories
+WORKDIR /app
+COPY . /app
+
+# Install packages and prerender images
+RUN npm i
+RUN npm run generate-images
+RUN npm run build
+
+
+# Stage 2: Serve the application using Node (Angular Universal)
+FROM node:22 AS serve
+
+WORKDIR /app
+
+# Copy the entire built output so the folder structure remains intact.
+COPY --from=build /app/dist/dartegnians-portfolio /app/dist/dartegnians-portfolio
+
+# Copy the API folder from the build stage
+COPY --from=build /app/api /app/api
+
+# Copy the container-only entry file from the docker folder.
+COPY docker/container-entry.mjs /app/container-entry.mjs
+
+# Copy package manifest so we can install production dependencies.
+COPY --from=build /app/package*.json ./
+
+# Install only production dependencies (like express)
+RUN npm install --production
+
+# Expose the SSR port
+EXPOSE 4000
+
+# Use the container-only entry file to bootstrap the app
+CMD ["node", "--experimental-specifier-resolution=node", "container-entry.mjs"]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+import { ResponsiveImageComponent } from '@components/responsive-image/responsive-image.component';
+
 @Component({
   selector: 'other-sites',
   templateUrl: './other-sites.component.html',
