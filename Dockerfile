@@ -1,18 +1,25 @@
-# Use Node 20
-FROM node:lts-alpine3.21
+FROM node:18-alpine AS base
 
-# Set work directory
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS build
 WORKDIR /app
+COPY . .
+COPY package.json pnpm-lock.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+ENV NODE_ENV=production
+RUN pnpm run build
 
-# Copy everything there
-COPY . /app
+FROM base AS dokploy
+WORKDIR /app
+ENV NODE_ENV=production
 
-# Install packages and prerender images
-RUN npm i
-RUN npm run prerender
+# Copy only the necessary files
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/node_modules ./node_modules
 
-# Expose the port the app runs on
-EXPOSE 4200
-
-# Start the application
-CMD ["npm", "run local"]
+EXPOSE 3000
+CMD ["pnpm", "start"]
