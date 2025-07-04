@@ -12,7 +12,6 @@ jobs:
       packages: write
     env:
       REGISTRY: ghcr.io
-      DOKPLOY_WEBHOOK_URL: ${{ secrets.DOKPLOY_WEBHOOK_URL }}
 
     steps:
       - name: Checkout repository
@@ -40,15 +39,3 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           platforms: linux/amd64
-
-      - name: Trigger Dokploy deployment
-        if: success()
-        run: |
-          curl -X POST ${{ env.DOKPLOY_WEBHOOK_URL }} \
-            -H "Content-Type: application/json" \
-            -d '{
-              "ref": "${{ github.ref }}",
-              "sha": "${{ github.sha }}",
-              "repository": "${{ github.repository }}",
-              "pusher": "${{ github.actor }}"
-            }'
