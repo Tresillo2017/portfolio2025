@@ -4,7 +4,7 @@ FROM base AS build
 WORKDIR /app
 COPY . .
 COPY package.json package-lock.json* ./
-RUN --mount=type=cache,id=npm,target=/root/.npm npm ci --only=production
+RUN --mount=type=cache,id=npm,target=/root/.npm npm ci --omit=dev
 ENV NODE_ENV=production
 RUN npm run build
 
