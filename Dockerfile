@@ -23,7 +23,7 @@ COPY --from=build /app/dist/dartegnians-portfolio /app/dist/dartegnians-portfoli
 COPY --from=build /app/api /app/api
 
 # Copy the container-only entry file from the docker folder.
-COPY docker/container-entry.mjs /app/container-entry.mjs
+COPY /container-entry.mjs /app/container-entry.mjs
 
 # Copy package manifest so we can install production dependencies.
 COPY --from=build /app/package*.json ./
