@@ -36,9 +36,13 @@
     "@angular/service-worker": "^20.0.3",
     "@angular/ssr": "^20.0.2",
     "@material/material-color-utilities": "^0.3.0",
+    "@ngx-translate/core": "^16.0.4",
+    "@ngx-translate/http-loader": "github:ngx-translate/http-loader",
     "bootstrap": "^5.3.6",
     "express": "^4.21.2",
     "idb": "^8.0.3",
+    "my-workspace": "github:ngx-translate/core",
+    "ngx-translate": "0.0.1-security",
     "rxjs": "^7.8.2",
     "tslib": "^2.8.1",
     "zone.js": "^0.15.1"
