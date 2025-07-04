@@ -39,13 +39,4 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           platforms: linux/amd64
-      - name: Trigger Dokploy Deployment
-        run: |
-          curl -X 'POST' \
-            'https://dokploy.tomasps.com/api/application.deploy' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer ${{ secrets.DOKPLOY_API_KEY }}' \
-            -d '{
-              "applicationId": "UwoEog0w-Ho7ViHEbpd49"
             }'
