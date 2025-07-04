@@ -3,8 +3,8 @@ FROM node:18-alpine AS base
 FROM base AS build
 WORKDIR /app
 COPY . .
-COPY package.json package-lock.json* ./
-RUN --mount=type=cache,id=npm,target=/root/.npm npm ci --omit=dev
+COPY package.json ./
+RUN --mount=type=cache,id=npm,target=/root/.npm npm install
 ENV NODE_ENV=production
 RUN npm run build
 
