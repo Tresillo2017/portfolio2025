@@ -8,11 +8,11 @@ WORKDIR /app
 COPY . /app
 
 # Install packages and prerender images
-RUN pnpm i
-RUN pnpm run prerender
+RUN npm i
+RUN npm run prerender
 
 # Expose the port the app runs on
 EXPOSE 4200
 
 # Start the application
-CMD ["pnpm", "run local"]
+CMD ["npm", "run local"]
